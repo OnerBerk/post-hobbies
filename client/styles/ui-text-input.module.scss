@@ -1,17 +1,20 @@
-.uiTextMain{
+.uiTextMain {
   display: flex;
   flex-direction: column;
   padding: 0.5em;
-  label{
+
+  label {
     margin-bottom: 0.5em;
   }
-  input{
+
+  input {
     width: 20em;
     height: 3em;
     padding-left: 1em;
   }
 }
 
-.inputFocus{
-
+.inputFocus {
+  background-color: #D1F2EB;
+  outline: none;
 }

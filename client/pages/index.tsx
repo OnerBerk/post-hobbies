@@ -1,17 +1,41 @@
-import type { NextPage } from 'next';
-import styles from '../styles/Home.module.scss';
-import UiTextInput from '../ui-components/ui-text-input/ui-text-input';
 import { useState } from 'react';
-import UiButton from '../ui-components/ui-button/ui-button';
+import { useRouter } from 'next/router';
 
-const Home: NextPage = () => {
+import UiTextInput from '../ui-components/ui-text-input/ui-text-input';
+import UiButton from '../ui-components/ui-button/ui-button';
+import UiLink from '../ui-components/link/ui-link';
+import UiLayout from '../ui-components/ui-layout/ui-layout';
+
+import { gql, useLazyQuery } from '@apollo/client/';
+
+const Home = () => {
+  const routeur =useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const test = () => {
-    alert('hshhshs');
+
+  const LOGIN = gql`
+      query login($email: String!, $password: String!) {
+          login(email: $email, password: $password) {
+              token
+          }
+      }
+  `;
+  const [getToken, { data,error }] = useLazyQuery(LOGIN);
+  error && console.log("erreur:", error.message)
+  if (data) {
+    localStorage.setItem('token', JSON.stringify(data.login.token));
+    routeur.push('/landing')
+  }
+
+  const handleSubmit = async ()=> {
+      try {
+        await getToken({ variables: { email, password } });
+      } catch (err) {
+        console.log('Handle me', err);
+      }
   };
   return (
-    <div className={styles.container}>
+    <UiLayout>
       <h1>Login</h1>
       <UiTextInput
         required={true}
@@ -28,10 +52,11 @@ const Home: NextPage = () => {
         placeholder='Entrez votre email'
       />
       <UiButton
-        title="Submit"
-        onClick={test}
+        title='Submit'
+        onClick={handleSubmit}
       />
-    </div>
+      <UiLink url='/register' title="Vous n'etes pas encore inscrit?" />
+    </UiLayout>
   );
 };
 

@@ -1,6 +1,6 @@
 import UiCard from '../../ui-components/ui-card/ui-card';
 import QUERY_USERS from '../../pages/api/query/UsersQuery.graphql';
-import { Iusers, Iuser, Ipost } from '../../interface/interface';
+import { Ipost, Iuser } from '../../interface/interface';
 import { useQuery } from '@apollo/client';
 import UiLoader from '../../ui-components/ui-loader/ui-loader';
 

@@ -25,5 +25,12 @@ export interface IUiTextInput {
   value: string;
   setValue: (value: string) => void;
   label: string;
-  required: boolean;
+  required?: boolean;
+  error?:boolean
+}
+
+
+export interface ILink{
+  url:string
+  title:string
 }
