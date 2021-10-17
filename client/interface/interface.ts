@@ -16,6 +16,14 @@ export interface Ipost {
   comment: string;
 }
 
-export interface Ichildren{
+export interface Ichildren {
   children: React.ReactNode;
+}
+
+export interface IUiTextInput {
+  placeholder: string;
+  value: string;
+  setValue: (value: string) => void;
+  label: string;
+  required: boolean;
 }

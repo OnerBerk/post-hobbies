@@ -1,0 +1,17 @@
+.uiTextMain{
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  label{
+    margin-bottom: 0.5em;
+  }
+  input{
+    width: 20em;
+    height: 3em;
+    padding-left: 1em;
+  }
+}
+
+.inputFocus{
+
+}

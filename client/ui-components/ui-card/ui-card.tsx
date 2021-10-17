@@ -1,9 +1,9 @@
-import style from './Card.module.scss';
+import style from './card.module.scss';
 import { Ichildren } from '../../interface/interface';
 
-const Card = ({children}:Ichildren) => {
+const UiCard = ({children}:Ichildren) => {
   return (
     <div className={style.cardMain}>{children}</div>
   );
 };
-export default Card;
+export default UiCard;

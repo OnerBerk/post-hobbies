@@ -1,0 +1,32 @@
+.buttonContainer {
+  margin-top: 1em;
+
+}
+
+.buttonMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20em;
+  height: 3em;
+  padding: 1em;
+  font-weight: bold;
+}
+
+.buttonMain--small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10em;
+  height: 2em;
+  padding: 1em;
+}
+
+.buttonMain--medium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15em;
+  height: 2em;
+  padding: 1em;
+}
